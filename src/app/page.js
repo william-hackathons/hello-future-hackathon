@@ -1,95 +1,50 @@
+import * as React from 'react';
+// Material UI
+import Button from '@mui/material/Button';
+
+// Next.js defaults
 import Image from "next/image";
 import styles from "./page.module.css";
 
+// Custom Components
+import EnhancedTable from './TableNFTs';
+import MintDialog from './CreateNewNFT';
+
+
+// Next.js ServerActions
+import { getNFTs } from '@/app/actions'
+
+
+// Hedera env vars
+const myAccountId = '0.0.4660077'
+const myPrivateKey = '3030020100300706052b8104000a042204205f60d47040795c51770663c2847bcb9c385b740c87edf3c66efbde370954c3ec'
+const SupplyKey = '302e020100300506032b657004220420ddba752654ac6b9174911be1166b11855451ded3723452b48789c9bdb6ced40c'
+const TokenId = '0.0.4697795'
+
+
+
+
+
 export default function Home() {
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+        <h1>VitaChain Connect</h1>
+        <MintDialog/>
+        <Image src="/Built_on_Hedera_White.png" width={373/2} height={170/2} alt="Built on Hedera" />
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <br/>
+      <div className={styles.description}>
+        <EnhancedTable/>
       </div>
     </main>
   );
 }
+
+
+function TransitionState() {
+  // TODO: Hedera Topic Service | Message Transaction | post state transition message & associated data
+}
+
+
